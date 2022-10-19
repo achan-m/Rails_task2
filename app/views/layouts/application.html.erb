@@ -2,29 +2,54 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
+ <body>
+  <header>
+    <a class="title" href="/">
+      <p>bookers</p>
+    </a>
+
     <% if user_signed_in? %>
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
-        <%= link_to "新規登録", new_user_registration_path %>
+        <a class="fa-sharp fa-solid fa-house-chimney" href="/">Home</a>
       </li>
+
       <li>
-        <%= link_to "ログイン", new_user_session_path %>
+        <a class="fa-sharp fa-solid fa-link" href="/homes/about">About</a>
+      </li>
+
+      <li>
+        <a class="fa-solid fa-user-plus" href="/users/sign_up">Sign up</a>
+      </li>
+      
+      <li>
+        <a class="fa-solid fa-right-to-bracket" href="/users/sign_in">Log in</a>
       </li>
     <% end %>
-    </header>
+  </header>
+    <main class="mb-auto">
     <%= yield %>
+    </main>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
