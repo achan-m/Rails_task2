@@ -1,1 +1,28 @@
-<h1>Book detail 本の詳細ページ</h1>
+<%= render 'list', books: @books %>
+
+<div class="col-md-8 offset-md-1">
+  <h2>Book detail</h2>
+    <table class="table">
+      <tbody>
+          <tr>
+              <td>
+                  <a>
+                  投稿ユーザー画像
+                  <br>
+                  ユーザー名
+                  </a>
+              </td>
+              <td>
+                  <a>本のタイトル（押したらこのページに飛ぶ）</a>
+              </td>
+              <td>本のオピニオン</td>
+              <td>
+                  <a class="btn btn-sm btn-success edit_book_path" href="/books/:id/edit">Edit</a>
+              </td>
+              <td>
+                  <a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_path" rel="nofollow" data-method="delete" href="/books/:id">Destroy</a>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+</div>
